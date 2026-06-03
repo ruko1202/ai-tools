@@ -17,9 +17,10 @@ Turn the changes on the current branch into a pull-request **title** and
 to you in. The reader of a PR is usually a teammate reviewing code, and the
 English output keeps PRs consistent across the repo.
 
-The summary is **a single short prose paragraph**, not a bulleted changelog and
-not a file-by-file walkthrough. Reviewers want to know *what this PR does and
-why* before they read the diff — restating every change is noise.
+The summary is **a short lead sentence or two followed by a few bullet points**,
+not one dense wall-of-text paragraph and not a file-by-file walkthrough. Lead
+with *what this PR does and why*; let the bullets carry the notable specifics so
+a reviewer can scan them. Restating every changed file is noise.
 
 ## Workflow
 
@@ -49,7 +50,7 @@ Commit messages are a hint, but they're often terse ("wip", "fix", "review
 comments") and don't explain the *why*. Read the actual diff to understand what
 the change accomplishes: a new feature, a bug fix, a refactor, a config bump.
 Lockfiles, generated code, and vendored dependencies can be acknowledged in one
-clause — don't let them dominate the summary.
+bullet — don't let them dominate the summary.
 
 ### 3. Write the title
 
@@ -63,37 +64,67 @@ clause — don't let them dominate the summary.
 
 ### 4. Write the summary
 
-One tight paragraph (roughly 2–5 sentences) in English that answers: what does
-this PR change, and why does it matter? Lead with the intent. Mention notable
-implementation choices or trade-offs only if a reviewer would want them up
-front. Skip ceremony like "This PR..." when a direct sentence reads better.
+Structure it so a reviewer can scan it in seconds:
+
+- **Lead** with one or two plain sentences stating what the PR changes and why
+  it matters. Skip ceremony like "This PR..." when a direct sentence reads
+  better.
+- **Then a short bullet list** (roughly 3–6 bullets) of the notable changes,
+  grouped by intent rather than by file. Each bullet is one idea — a new
+  endpoint, a behavior guarantee, a guard, a migration, a trade-off worth
+  flagging. Fold generated code / stubs / follow-ups into a single bullet.
+
+Keep it tight: bullets are short fragments, not paragraphs. If the change is
+genuinely tiny (a one-line fix), a single lead sentence with no bullets is fine
+— don't pad it.
 
 ### 5. Present the result
 
-Output the title and summary in a format that's easy to paste into a PR:
+Present the title and the summary as **two separate fenced code blocks**, so the
+user can copy each one independently. Put the title in its own block and the
+summary (lead + bullets) in another, each under a short label:
+
+**Title**
 
 ```
-Title: <the title>
+<the title>
+```
 
-<the summary paragraph>
+**Summary**
+
+```
+<lead sentence(s)>
+
+- <change 1>
+- <change 2>
+- <change 3>
 ```
 
 Then offer to adjust tone, length, or add a section (testing notes, ticket
 link) if the user wants — but don't add those by default, since the user asked
-for a simple title + paragraph.
+for a simple title + summary.
 
 ## Example
 
 Suppose the branch adds debounced search and removes a now-unused helper.
 
-```
-Title: Add debounced search to the contacts list
+**Title**
 
-Replaces the per-keystroke contacts query with a 300ms debounced search so the
-backend isn't hit on every character, cutting request volume on the contacts
-page substantially. Also removes the now-unused `legacySearch` helper that the
-old implementation relied on.
+```
+Add debounced search to the contacts list
 ```
 
-Note how it states the change and the payoff (fewer requests) in plain prose,
-and folds the cleanup into one clause rather than listing every touched file.
+**Summary**
+
+```
+Debounces the contacts search so the backend isn't hit on every keystroke,
+cutting request volume on the contacts page substantially.
+
+- Replace the per-keystroke query with a 300ms debounced search
+- Cancel the in-flight request when a new keystroke supersedes it
+- Remove the now-unused `legacySearch` helper the old path relied on
+```
+
+Note how the lead states the change and the payoff (fewer requests) in plain
+prose, and the bullets carry the specifics grouped by intent rather than listing
+every touched file.

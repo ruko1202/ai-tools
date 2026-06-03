@@ -1,0 +1,15 @@
+{
+  "name": "ai-tools",
+  "owner": {
+    "name": "Ruko",
+    "email": "rusbko@gmail.com"
+  },
+  "description": "Ruko's personal Claude plugins",
+  "plugins": [
+    {
+      "name": "ruko-git-tools",
+      "source": "./plugins/ruko-git-tools",
+      "description": "Git workflow toolkit: do-task, do-commits, pretty-commit-from-main, pr."
+    }
+  ]
+}
