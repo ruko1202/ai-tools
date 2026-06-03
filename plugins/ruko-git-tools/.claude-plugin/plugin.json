@@ -1,0 +1,8 @@
+{
+  "name": "ruko-git-tools",
+  "description": "Git workflow toolkit: execute dev tasks in a clean branch (do-task), group changes into logical Conventional Commits (do-commits), rebuild branch history from main (pretty-commit-from-main), and draft PR titles & summaries (pr).",
+  "author": {
+    "name": "Ruko",
+    "email": "rusbko@gmail.com"
+  }
+}
