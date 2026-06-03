@@ -1,5 +1,5 @@
-# ai-skills
-AI skills
+# ai-tools
+## AI skills
 
 Skills marketplaces
 - https://github.com/Kilo-Org/kilo-marketplace
