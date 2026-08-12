@@ -9,7 +9,7 @@
     {
       "name": "ruko-git-tools",
       "source": "./plugins/ruko-git-tools",
-      "description": "Git workflow toolkit: do-task, do-commits, pretty-commit-from-main, pr."
+      "description": "Dev workflow toolkit: do-task, do-commits, pretty-commit-from-main, pr."
     }
   ]
 }
