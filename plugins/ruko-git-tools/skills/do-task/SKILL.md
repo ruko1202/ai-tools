@@ -1,6 +1,18 @@
 ---
 name: do-task
-description: Execute a development task end-to-end inside a clean git workflow — understand the request, study the relevant code, create a dedicated branch, implement the change, and finish by committing the result. Use this whenever the user hands over a coding or implementation task and expects working code rather than just discussion: phrases like "сделай задачу", "выполни таску", "реализуй фичу", "почини баг", "do this task", "implement X", "fix this bug", or a pasted ticket/description. Trigger even when the user never says the word "task" explicitly but clearly wants a change built in the repo from start to finish. This is the entry-point skill that orchestrates the others (do-commits, pr, pretty-commit-from-main) when needed.
+description: >-
+  Execute ONE development task end-to-end inside a clean git workflow —
+  understand the request, study the relevant code, create a dedicated branch,
+  implement the change, and finish by committing the result. This is the default
+  entry point for task requests — use it whenever the user hands over a coding or
+  implementation task and expects working code rather than just discussion —
+  «сделай задачу», «выполни таску», «реализуй фичу», «почини баг», "do this
+  task", "implement X", "fix this bug", or a pasted ticket. Trigger even when the
+  user never says the word "task" explicitly, and orchestrate the neighbouring
+  skills (do-commits, pr, pretty-commit-from-main) when needed. Do NOT use when
+  the user asks for the whole spec-to-ship pipeline — «сделай по флоу», «прогони
+  полный цикл», «от спеки до шипа», "run the full flow", or an explicit spec +
+  plan + review + ship chain — that is the flow skill.
 ---
 
 # Do Task
@@ -47,3 +59,7 @@ description: Execute a development task end-to-end inside a clean git workflow �
 - **do-commits** — сгруппировать изменения в чистые коммиты (стандартное завершение задачи).
 - **pr** — заголовок и описание для пул-реквеста (по явной просьбе).
 - **pretty-commit-from-main** — софт-резет на main и пересборка истории коммитов (по явной просьбе).
+
+## Когда это не твоя задача
+
+Если пользователь просит не одну задачу, а весь цикл — интервью, спека, аудит спеки, план, реализация, тесты, ревью, предрелизный вердикт — это скилл **flow**, а не этот. Признак: в просьбе звучит «по флоу», «полный цикл», «от спеки до шипа» или явно перечисленная цепочка со спекой и шипом. Во всех остальных случаях, включая немаркированное «реализуй X», работает этот скилл.
