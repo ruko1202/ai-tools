@@ -7,9 +7,10 @@
   "description": "Ruko's personal Claude plugins",
   "plugins": [
     {
-      "name": "ruko-git-tools",
-      "source": "./plugins/ruko-git-tools",
-      "description": "Dev workflow toolkit: do-task, do-commits, pretty-commit-from-main, pr."
+      "name": "ruko-ai-tools",
+      "version": "0.1.1",
+      "source": "./plugins/ruko-ai-tools",
+      "description": "Dev workflow toolkit: flow, do-commits, pretty-commit-from-main, pr."
     }
   ]
 }
