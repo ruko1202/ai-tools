@@ -1,6 +1,6 @@
 {
   "name": "ruko-ai-tools",
-  "description": "AI workflow toolkit: run a dev task through the full spec-to-ship cycle (flow), group changes into logical Conventional Commits (do-commits), rebuild branch history from main (pretty-commit-from-main), and draft PR titles & summaries (pr).",
+  "description": "AI workflow toolkit: run a dev task through the full spec-to-ship cycle (flow), strip duplicate and vacuous tests under a coverage guard (clean-tests), group changes into logical Conventional Commits (do-commits), rebuild branch history from main (pretty-commit-from-main), and draft PR titles & summaries (pr).",
   "author": {
     "name": "Ruko",
     "email": "rusbko@gmail.com"
