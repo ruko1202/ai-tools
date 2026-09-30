@@ -8,9 +8,9 @@
   "plugins": [
     {
       "name": "ruko-ai-tools",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "source": "./plugins/ruko-ai-tools",
-      "description": "Dev workflow toolkit: flow, clean-tests, do-commits, pretty-commit-from-main, pr."
+      "description": "Dev workflow toolkit: flow, clean-tests, do-commits, pretty-commit-from-main, pr, improve-codebase-architecture, codebase-design, grilling, domain-modeling, diagnosing-bugs, prototype, handoff."
     }
   ]
 }
